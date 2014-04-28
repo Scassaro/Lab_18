@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+  <head>
+	<link rel="stylesheet" type="text/css" href="default.css">
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#vehicle-submit').click(function () {
+                var payload = {
+                    name: $('#name').val(),
+					model: $('#make').val(),
+					make: $('#model').val(),
+					year: $('#year').val()
+                };
+
+		console.log(payload);
+
+                $.ajax({
+                    url: "/enter",
+                    type: "POST",
+                    contentType: "application/json",
+                    processData: false,
+                    data: JSON.stringify(payload),
+                    complete: function (data) {
+                        $('#output').html(data.responseText);
+                    }
+                });
+            });
+        });
+    </script>
+  </head>
+  <body>
+    <h3>Enter Vehicle Information</h3>
+    Your Name: <input id="name" type="text" /> <br />
+	Vehicle Make: <input id="make" type="text" /> <br />
+	Vehicle Model: <input id="model" type="text" /> <br />
+	Vehicle Year: <input id="year" type="text" /> <br />
+    <input id="vehicle-submit" type="submit" />
+    <p id="output"></p>
+	<form method="GET">
+	<select id="selector" name="vehicles">
+		<option value="1">Stephen</option>
+		<option value="2">Ryan</option>
+		<option value="3">Mark</option>
+	</select>
+	<br />
+	<input type="submit">
+	</form>
+  </body>
+</html>

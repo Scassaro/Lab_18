@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link rel="stylesheet" type="text/css" href="default.css">
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function () {
+				$.ajax({
+					url: "/vehicle/table",
+					type: "GET",
+					contentType: "application/json",
+					processData: false,
+					complete: function (data) {
+						$('#output').html(data.responseText);
+					}
+				});				
+			});
+		</script>
+	</head>
+	<title>Car Value</title>
+	<body>
+		<div id="header" style="background-color:#3399FF;min-width:100px;width:100%;">
+			<h1>Car Value</h1>
+		</div>
+		<div id="nav_bar" style="background-color:Orange;min-height:100px;height:100%;width:100px;">
+			<b><u>Navigation</u></b><br />
+			<a href="lab16entervehicle.html">Vehicle Entry</a> <br />
+		</div>
+		<div id="text" style="background-color:green;height:100px;width:500px;">
+			<p>Welcome to Car Value. Follow the link on the left to the Vehicle
+			Entry webpage, where you can input vehicle information to receive a value for your car.
+		</div>
+		<div id="vehicles">
+		<p id="output"></p>
+		</div>
+		<div id="footer" style="background-color:#af5b33;text-align:center;min-width:100px;width:100%;">
+			<p>Car Value &#169;2014</p>
+		</div>
+	</body>
+</html>

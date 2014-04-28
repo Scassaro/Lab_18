@@ -1,0 +1,35 @@
+body
+{
+    background: #ffffff url("http://subtlepatterns.com/patterns/green_cup.png") top;
+}
+
+h1
+{
+	text-align: center;
+}
+
+#text
+{
+	width: 50%;
+	margin: 0 auto;
+}
+
+table,th,td
+{
+	border:1px solid black;
+}
+
+#visible
+{
+		display:none;
+}
+
+#visible:target
+{
+		display:block;
+}
+
+#text, #nav_bar
+{
+	display:inline;
+}
